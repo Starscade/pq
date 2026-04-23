@@ -36,7 +36,6 @@ if test -z "$PSQL_PAGER"; then
 fi
 
 
-
 printf "\n"
 printf "      \033[1mENV\033[0m: $ENV_FILE\n"
 printf "    \033[1mPAGER\033[0m: $PSQL_PAGER\n"
@@ -48,6 +47,8 @@ printf " \033[1mDATABASE\033[0m: $PGDATABASE\n"
 printf "\n"
 
 
+PROMPT_TEMPLATE='%[%033[1;7m%] %R %[%033[0m%] '
+
 psql \
-	-v PROMPT1='%R: ' \
-	-v PROMPT2='%R: '
+	-v PROMPT1="$PROMPT_TEMPLATE" \
+	-v PROMPT2="$PROMPT_TEMPLATE"
