@@ -48,4 +48,6 @@ printf " \033[1mDATABASE\033[0m: $PGDATABASE\n"
 printf "\n"
 
 
-psql
+psql \
+	-v PROMPT1='%R: ' \
+	-v PROMPT2='%R: '
